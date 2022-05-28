@@ -21,6 +21,6 @@ Encryption POST request to http://localhost:8765/data-encryptor/encrypt
 
 ![alt text](https://github.com/akashmandal099/EncryptionDecryptionTransactionMicroservice/blob/main/Documents/EncryptPostman.png)
 
-Decryption GET request to http://localhost:8765/data-decryptor/decrypt
+Test Decryption by POST request to http://localhost:8765/data-decryptor/decrypt
 
 ![alt text](https://github.com/akashmandal099/EncryptionDecryptionTransactionMicroservice/blob/main/Documents/DecryptionPostman.png)

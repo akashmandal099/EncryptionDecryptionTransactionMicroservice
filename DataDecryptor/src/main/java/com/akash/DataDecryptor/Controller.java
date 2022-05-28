@@ -52,26 +52,25 @@ public class Controller {
 		data.setTransactionAmount(Long.parseLong(Decryptor.decrypt(encrData.getTransactionAmount(), privateKey)));
 		
 		System.out.println(data);
-//		System.out.println("find by account no:" + repo.findTransactionAmountByAccountNo(data.accountNo));
-//		
-//		long balance = repo.getById(data.accountNo).transactionAmount;
-//		try {
-//			System.out.println("From database:" + repo.findByAccountNo(data.accountNo).transactionAmount);
-//		} catch (Exception e){
-//			e.printStackTrace();
-//		}
-//		repo.save(data);
-//		if (repo.getById(data.accountNo) == null) {
-//			repo.save(data);
-//			System.out.println("data added"+data);
-//		} else {
-////			Long balance = repo.getTransactionAmountByAccountNo(data.accountNo);
-//			if(data.transactionType == "Debit") {
-//				data.setTransactionAmount(balance - data.transactionAmount);
-//			} else {
-//				data.setTransactionAmount(balance + data.transactionAmount);
-//			}
-//		}
+		try {
+//			repo.findById(data.accountNo);
+			Long balance = repo.findByAccountNo(data.accountNo).transactionAmount;
+			System.out.println(balance);
+			if(data.transactionType.equals("Debit") || data.transactionType.equals("debit")) {
+				data.setTransactionAmount(balance - data.transactionAmount);
+			} else if (data.transactionType.equals("Credit") || data.transactionType.equals("credit")){
+				data.setTransactionAmount(balance + data.transactionAmount);
+			} else {
+				System.out.println("No implementations for "+ data.transactionType+".");
+				
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		} 
+		finally {
+			repo.save(data);
+		}
 		return data;
 	}
 

@@ -1,4 +1,4 @@
-# EncryptionDecryptionTransactionMicroservice
+# Encryption Decryption Transaction Microservice
 This Microservice takes data from client and encrypts it by DataEncryptor with Public Key using Assymetric Encryption (RSA algorithm) and sends the data to the DataDecryptor Microservice, which then derypts the data using Private key. After decrypting the data it update the data in the data base accrodingly. 
 
 ## Data has 4 values which client sends:
